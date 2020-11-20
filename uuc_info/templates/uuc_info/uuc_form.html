@@ -1,0 +1,66 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align:center">UUC Form</h1>
+    <p></p>
+    <p></p>
+    <div class="row">
+
+        <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-12">
+              {{form.target_instrument_name|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.workinstruction|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.Is_Standard|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.master_1|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.master_2|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.master_3|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.uncertainity|as_crispy_field}}
+          </div>
+
+
+
+      </div>
+
+        <p>	</p>
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'uuc_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+    </div>
+
+      </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

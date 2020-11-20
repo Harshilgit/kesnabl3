@@ -1,0 +1,50 @@
+{% extends "masterinstrument/base.html" %}
+
+{% block content %}
+<p></p>
+<p></p>
+
+  <div class="container">
+    <div class="jumbotron">
+      <div>
+          <h2 style="text-align:center;">Contact List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+  {% for contact in con_list %}
+
+  <tbody>
+    <tr>
+      <td><a href="{% url 'contactdetail' pk=contact.pk %}">{{contact.name}}</a></td>
+      <td>{{contact.mobile}}</td>
+
+    </tr>
+  </tbody>
+
+  {% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+  <div class="text-center">
+    <a class='btn btn-success' href="{% url 'contactcreate' %}">Add New</a>
+  </div>
+</div>
+  </div>
+  </div>
+  <p></p>
+{% endblock %}

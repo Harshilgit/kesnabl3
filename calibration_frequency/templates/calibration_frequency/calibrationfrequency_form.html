@@ -1,0 +1,43 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+
+
+<div class="text-center">
+	<div class="jumbotron">
+		<h2>Calibration Frequency</h2>
+				<form method="POST">
+					{% csrf_token %}
+
+
+          <div class="row">
+            <div class="col-md-12">
+                {{form.frequency_name|as_crispy_field}}
+            </div>
+          </div>
+
+			<div class="text-center">
+					<div class="row">
+						<div class="col-md-3"></div>
+					<div class="col-md-3">
+	            <button type="submit" class="btn btn-success btn-block" >
+	                Save</button>
+	        </div>
+					<div class="col-md-3">
+							<a href="{% url 'calibrationfrequency_list' %}" class="btn btn-secondary btn-block " style="background-color:gray">
+									 Back
+							</a>
+					</div>
+					<div class="col-md-3"></div>
+	        </div>
+				</div>
+		</form>
+	</div>
+	</div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+<p></p>
+<p></p>
+
+<div class="container">
+  <div class="jumbotron">
+
+
+  	<h1 style="text-align:center">Organization Form</h1>
+  	<p></p>
+
+
+
+  			<form method="POST">
+  			{% csrf_token %}
+        <div class="row">
+          <div class="col-md-12">
+              {{form.name|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.website|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.email|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.address|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.phone_1|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.country|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.state|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.city|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+                {{form.industry|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+                {{form.notes|as_crispy_field}}
+          </div>
+
+            <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+        <div class="col-md-3"></div>
+
+        </div>
+
+  	</div>
+	</div>
+
+{% endblock %}

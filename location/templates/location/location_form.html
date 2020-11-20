@@ -1,0 +1,56 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align:center">Location</h1>
+    <p></p>
+    <p></p>
+    <!-- <div class="row"> -->
+
+        <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-6">
+              {{form.location_id|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.location_name|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.temp|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.rh|as_crispy_field}}
+          </div>
+
+
+      </div>
+
+        <p>	</p>
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'location_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+    </div>
+
+      </form>
+      <!-- </div> -->
+      <div class="col-md-3"></div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

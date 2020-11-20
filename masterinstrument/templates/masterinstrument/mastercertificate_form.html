@@ -1,0 +1,61 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+
+
+  	<h1 style="text-align:center">Master Instrument Certificate</h1>
+  	<p></p>
+
+
+
+  			<form method="POST">
+  			{% csrf_token %}
+        <div class="row">
+          <div class="col-md-12">
+              {{form.master_id|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.uncertainity|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.certificate_no|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.ulr_no|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.issue_date|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.exp_date|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+                {{form.review_of_record|as_crispy_field}}
+            </div>
+            <div class="col-md-3">
+                {{form.active_status|as_crispy_field}}
+            </div>
+            <div class="col-md-3">
+                {{form.image|as_crispy_field}}
+            </div>
+
+
+
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'masterinstrumentcertificate_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+        </div>
+
+  	</div>
+	</div>
+
+{% endblock %}

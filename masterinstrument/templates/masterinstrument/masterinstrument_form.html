@@ -1,0 +1,193 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align:center">Master Instrument</h1>
+    <p></p>
+    <p></p>
+    <div class="row">
+
+        <form method="POST" id="MasterInstrumentForm" data-models-url="{% url 'ajax_load_models' %}" data-makes-url="{% url 'ajax_load_makes' %}" novalidate>
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-12" id="mastername">
+              {{form.master_name|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.master_serialno|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.master_idno|as_crispy_field}}
+          </div>
+          <div class="col-md-6" id="make">
+              {{form.make|as_crispy_field}}
+          </div>
+          <div class="col-md-6" id="model">
+              {{form.model|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.range|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.least_count|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.accuracy|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.inservice_date|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.resolution|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.initial_trac|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.acceptance_criteria|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.current_inst_condition|as_crispy_field}}
+          </div>
+
+        <h3 class="col-md-12"><p class="col-md-12">Purchase Details</p></h3>
+
+          <div class="col-md-12">
+              {{form.purchase_from|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.purchase_order|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.purchase_date|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.amount|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.date_of_receipt|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.condition_of_receipt|as_crispy_field}}
+          </div>
+          <div class="col-md-3">
+              {{form.date_of_inspection|as_crispy_field}}
+          </div>
+
+          <h3 class="col-md-12"><p class="col-md-12">Software Details</p></h3>
+
+          <div class="col-md-4">
+              {{form.software_details|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.software_idno|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.software_inservice|as_crispy_field}}
+          </div>
+
+          <h3 class="col-md-12"><p class="col-md-12">Instructions For Operation</p></h3>
+
+          <div class="col-md-6">
+              {{form.manufacture_instruction|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.national_international_standerd|as_crispy_field}}
+          </div>
+
+          <h3 class="col-md-12"><p class="col-md-12">Calibration Requirement</p></h3>
+
+          <div class="col-md-6">
+              {{form.parameter_calibrated|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.referance_standard|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.ext_calibration_agency|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.cal_frequency|as_crispy_field}}
+          </div>
+
+
+
+      </div>
+
+      <!-- <table>
+        {{ form.as_table }}
+      </table> -->
+
+        <p>	</p>
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'masterinstrument_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+    </div>
+
+      </form>
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+        $("#id_make").change(function () {
+          var url = $("#MasterInstrumentForm").attr("data-models-url");
+          var makeId = $(this).val();
+
+          $.ajax({
+            url: url,
+            data: {
+              'make': makeId
+            },
+            success: function (data) {
+              $("#id_model").html(data);
+            }
+          });
+
+        });
+      </script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+        $("#id_mastername").change(function () {
+          var url = $("#MasterInstrumentForm").attr("data-makes-url");
+          var masterId = $(this).val();
+
+          $.ajax({
+            url: url,
+            data: {
+              'master_name': masterId
+            },
+            success: function (data) {
+              $("#id_make").html(data);
+            }
+          });
+
+        });
+      </script>
+
+
+
+
+     </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

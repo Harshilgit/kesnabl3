@@ -1,0 +1,67 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Certificate List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Job Id</th>
+        <th scope="col">Certificate Number</th>
+        <th scope="col">Certificate Date</th>
+        <th scope="col">Validity Date</th>
+        <th scope="col">Issue Date</th>
+        <th scope="col">Client</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for cert in cert_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'cert_detail' pk=cert.pk %}">{{cert.inst_job_id}}</a></td>
+      <td>{{cert.cert_number}}</td>
+      <td>{{cert.cert_date}}</td>
+      <td>{{cert.valid_date}}</td>
+      <td>{{cert.issue_date}}</td>
+      <td>{{cert.client}}</td>
+
+
+
+      <td><a href="{% url 'cert_update' pk=cert.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'cert_delete' pk=cert.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'cert_create' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

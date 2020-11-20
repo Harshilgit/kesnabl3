@@ -1,0 +1,101 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align:center">Testing Instrument Form</h1>
+    <p></p>
+    <p></p>
+    <div class="row">
+
+        <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-12">
+              {{form.job_no|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.inst_job_id|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.inst_name|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.location|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.make|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.model|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.sr_no|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.id_no|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.accuracy|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.low_range|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.high_range|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.least_count|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.unit|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.inst_location|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.condition|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.nabl|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.cal_frequency|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.sp_req|as_crispy_field}}
+          </div>
+
+
+
+
+
+      </div>
+
+        <p>	</p>
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'testing_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+    </div>
+
+      </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

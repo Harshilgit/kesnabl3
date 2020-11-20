@@ -1,0 +1,54 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+
+
+<div class="jumbotron">
+
+<div class="text-center">
+<h3 class="grayc">Asset Name : {{mi_detail.master_name}}</h3>
+</div>
+
+<p></p>
+
+<div class="container">
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">Serial No</th>
+    <th scope="col">Id No</th>
+    <th scope="col">Make</th>
+    <th scope="col">Model</th>
+    <th scope="col">Range</th>
+    <th scope="col">Least Count</th>
+    <th scope="col">Date Of Place Inservice</th>
+    <th scope="col">Master Instrument Type</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{mi_detail.master_serialno}}</td>
+    <td>{{mi_detail.master_idno}}</td>
+    <td>{{mi_detail.make}}</td>
+    <td>{{mi_detail.model}}</td>
+    <td>{{mi_detail.range}}</td>
+    <td>{{mi_detail.least_count}}</td>
+    <td>{{mi_detail.inservice_date}}</td>
+    <td>{{mi_detail.master_name.name}}</td>
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'updatemasterinstrument' pk=mi_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'deletemasterinstrument' pk=mi_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'masterinstrument_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+{% endblock %}

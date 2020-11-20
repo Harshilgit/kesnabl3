@@ -1,0 +1,54 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Parameter To Be Calibrated</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Parameter</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for pc in parametercalibrated_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'parametercalibrateddetail' pk=pc.pk %}">{{pc.parameter_name}}</a></td>
+
+      <td><a href="{% url 'updateparametercalibrated' pk=pc.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'deleteparametercalibrated' pk=pc.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'createparametercalibrated' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

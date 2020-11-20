@@ -1,0 +1,38 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+
+
+  	<h1 style="text-align:center">Country Form</h1>
+  	<p></p>
+
+
+
+  			<form method="POST">
+  			{% csrf_token %}
+        <div class="row">
+          <div class="col-md-12">
+              {{form.name|as_crispy_field}}
+          </div>
+
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'country_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+        <div class="col-md-3"></div>
+
+        </div>
+
+  	</div>
+	</div>
+
+{% endblock %}

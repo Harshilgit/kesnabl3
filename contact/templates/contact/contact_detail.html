@@ -1,0 +1,50 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+
+<p></p>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Mobile</th>
+    <th scope="col">Email</th>
+    <th scope="col">Date Of Birth</th>
+    <th scope="col">Organization</th>
+    <th scope="col">Department</th>
+    <th scope="col">Anniversary</th>
+    <th scope="col">Gender</th>
+
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{con_detail.name}}</td>
+    <td>{{con_detail.mobile}}</td>
+    <td>{{con_detail.email}}</td>
+    <td>{{con_detail.dob}}</td>
+    <td>{{con_detail.organization.name}}</td>
+    <td>{{con_detail.role.name}}</td>
+    <td>{{con_detail.anniversary}}</td>
+    <td>{{con_detail.gender}}</td>
+
+
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'contactupdate' pk=con_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'contactdelete' pk=con_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+{% endblock %}

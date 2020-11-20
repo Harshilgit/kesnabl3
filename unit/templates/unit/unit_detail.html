@@ -1,0 +1,24 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="container">
+
+
+<div class="jumbotron">
+<div>
+	<h2 style="text-align:center;">Location : {{ut_detail.location_name}}</h2>
+	<p></p>
+	<h2 style="text-align:center;">Unit : {{ut_detail.unit_name}}</h2>
+</div>
+	<p></p>
+	<p></p>
+	<div class="text-center">
+		<a href="{% url 'updateunit' pk=ut_detail.pk  %}" class="btn btn-primary">Update</a>
+		<a href="{% url 'deleteunit' pk=ut_detail.pk  %}" class="btn btn-danger">Delete</a>
+		<a href="{% url 'unit_list' %}" class="btn btn-secondary">Back To List</a>
+	</div>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Certificate</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/001f51a3a3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+
+
+</head>
+  <body>
+
+    <div class="container-fluid">
+      <nav class='navbar navbar-expand-lg navbar-light'>
+
+        <div class="d-flex justify-content-start"><a class="navbar-brand" href="{% url 'dashboard' %}">
+           KENABL</a>
+        </div>
+        <div class="btn-lg float-right">
+          <input type="button" value="Print this page" onClick="window.print()">
+        </div>
+
+      
+
+      </nav>
+    </div>
+
+    <p></p>
+
+
+
+
+    {% for cert in certificate_list %}
+
+
+
+
+    <div class="container" style="border: 1px solid black">
+
+        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/042011/torrent_logo.png?itok=cR0UpmfK" width="100" height="100" align="right">
+        <p><h4 style="text-align:center"> CALIBRATION CERTIFICATE OF PRESSURE GAUGE / VACUUM GAUGE/ COMPOUND GAUGE </h4><p>
+
+
+        <table border = "1" width = "100%" >
+
+         <tr>
+            <td>Certificate No</td>
+            {% for c in certificate %}
+            <td>{{c.cert_number}}</td>
+            {% endfor %}
+            <td>Area Name</td>
+            <td>{{cert.inst_location}}</td>
+         </tr>
+
+         <tr>
+            <td>Customer Name</td>
+            <td>Torrent</td>
+            <td>Equipment Id</td>
+            <td>{{cert.inst_id}}</td>
+         </tr>
+
+         <tr>
+            <td>Equipment Name</td>
+            <td>{{cert.inst_name}}</td>
+            <td>Instrument Id</td>
+            <td>{{cert.id_no}}</td>
+         </tr>
+
+         <tr>
+            <td>Location</td>
+            <td>Thermal Lab</td>
+            <td>Serial No</td>
+            <td>{{cert.sr_no}}</td>
+         </tr>
+
+         <tr>
+            <td>Make</td>
+            <td>{{cert.make}}</td>
+            <td>Inst Category</td>
+            <td>---</td>
+         </tr>
+
+         <tr>
+            <td>Range</td>
+            <td>{{cert.low_range}} - {{cert.high_range}} {{cert.unit}}</td>
+            <td>Calibration Date</td>
+            <td>03-11-2020</td>
+         </tr>
+
+         <tr>
+            <td>Acceptance Criteria</td>
+            <td>±1°C</td>
+            <td>Calibration Due Date</td>
+            <td>02-11-2021</td>
+         </tr>
+
+         <tr>
+            <td>Environmental Temp</td>
+            <td>____°C</td>
+            <td>Environmental RH</td>
+            <td>____%</td>
+         </tr>
+      </table>
+
+      <h5 style="text-align:center">Details Of Master Calibrator</h5>
+
+        <table border = "1" width = "100%">
+
+          <tr>
+             <td>Name</td><td>Make/Model</td><td>Serial No</td><td>Range</td><td>Accuracy</td><td>Cert No</td><td>Valid Up To</td>
+          </tr>
+
+          <tr>
+             <td>RTD</td><td>PT-100</td><td>KES-01</td><td>0-1200</td><td>1%</td><td>KES/201103/T/001</td><td>02-11-2021</td>
+          </tr>
+
+          <tr>
+             <td>2</td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+
+          <tr>
+             <td>3</td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        </table>
+        <p></p>
+
+        <table border = "1" width = "100%">
+           <tr>
+             <th rowspan="2" >Sr No</th>
+
+             <th rowspan="2" >Standard Reading</th>
+
+             <th colspan="4" >UUC Reading</th>
+             <th rowspan="2" >Adjustment</th>
+             <th rowspan="2" colspan="2" >Error</th>
+           </tr>
+
+           <tr>
+             <th colspan="2">Before Adjustment</th>
+             <th colspan="2">After Adjustment</th>
+          </tr>
+
+
+
+             <tr>
+               <th>1</th>
+
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+
+             </tr>
+
+             <tr>
+               <th>2</th>
+
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+
+             </tr>
+             <tr>
+               <th>3</th>
+
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+
+             </tr>
+
+             <tr>
+               <th>4</th>
+
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+
+             </tr>
+
+             <tr>
+               <th>5</th>
+
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+
+             </tr>
+
+             <tr>
+               <th colspan="6">ANY ADJUSTMENT DONE  :  YES / NO</th>
+               <th colspan="6"> REMARKS: CALIBRATION FOUND  OK / NOT OK  </th>
+             </tr>
+           </table>
+
+           <p></p>
+
+           <table border = "1" width = "100%">
+             <tr>
+                <td>Comments</td><td>Write Your Comments Here...</td>
+             </tr>
+           </table>
+
+           <p></p>
+
+           <table border = "1" width = "100%">
+             <tr>
+                <th rowspan="4">Calibrated By</th>
+                <th rowspan="4">Checked By</th>
+                <th rowspan="4">Approved By</th>
+             </tr>
+           </table>
+
+           <p></p>
+
+           <table border = "1" width = "100%">
+             <tr>
+                <td>-</td><td>Prepared By</td><td>Checked By</td><td>Reviewed By</td>
+             </tr>
+
+             <tr>
+                <td>Sign & Date</td><td></td><td></td><td></td>
+             </tr>
+
+             <tr>
+                <td>Name</td><td></td><td></td><td></td>
+             </tr>
+           </table>
+
+           <p></p>
+           <p></p>
+
+        </div>
+        <p></p>
+        <p></p>
+
+
+
+{% endfor %}
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+
+  </body>
+</html>

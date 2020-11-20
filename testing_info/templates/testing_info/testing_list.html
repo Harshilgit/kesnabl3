@@ -1,0 +1,60 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Testing Instrument List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Job No</th>
+        <th scope="col">Instrument Job Id</th>
+        <th scope="col">Instrument Name</th>
+        <th scope="col">Nabl (Y/N)</th>
+
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for testing in testing_list %}
+
+  <tbody>
+    <tr>
+      <td>{{testing.job_no}}</td>
+      <td><a href="{% url 'testing_detail' pk=testing.pk %}">{{testing.inst_job_id}}</a></td>
+      <td>{{testing.inst_name}}</td>
+      <td>{{testing.nabl}}</td>
+
+      <td><a href="{% url 'testing_update' pk=testing.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'testing_delete' pk=testing.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'testing_create' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

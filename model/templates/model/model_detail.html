@@ -1,0 +1,23 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="container">
+
+
+<div class="jumbotron">
+<div>
+	<h2 style="text-align:center;">Model : {{mdl_detail.model_name}}</h2>
+	<p></p>
+</div>
+	<p></p>
+	<p></p>
+	<div class="text-center">
+		<a href="{% url 'updatemodel' pk=mdl_detail.pk  %}" class="btn btn-primary">Update</a>
+		<a href="{% url 'deletemodel' pk=mdl_detail.pk  %}" class="btn btn-danger">Delete</a>
+		<a href="{% url 'model_list' %}" class="btn btn-secondary">Back To List</a>
+	</div>
+
+</div>
+</div>
+{% endblock %}

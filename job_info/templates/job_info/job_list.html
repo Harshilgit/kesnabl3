@@ -1,0 +1,62 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+
+    <div>
+          <h2 style="text-align:center;">Job List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Job No</th>
+        <th scope="col">Date Of Receipt</th>
+        <th scope="col">Total No Of Instrument</th>
+        <th scope="col">Organization</th>
+
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for job in job_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'detailjob' pk=job.pk %}">{{job.job_no}}</a></td>
+      <td>{{job.dt_receipt}}</td>
+      <td>{{job.total_inst}}</td>
+      <td>{{job.party_name}}</td>
+
+
+      <td><a href="{% url 'updatejob' pk=job.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'deletejob' pk=job.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'createjob' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

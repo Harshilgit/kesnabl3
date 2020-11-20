@@ -1,0 +1,35 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+<div class="jumbotron">
+
+<p></p>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">Country Name</th>
+    <th scope="col">State Name</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{st_detail.country}}</td>
+    <td>{{st_detail.name}}</td>
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'stateupdate' pk=st_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'statedelete' pk=st_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'state_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

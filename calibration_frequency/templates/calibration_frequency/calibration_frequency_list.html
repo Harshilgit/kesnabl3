@@ -1,0 +1,54 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Calibration Frequency</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Calibration Frequency</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for cfrn in calibrationfrequency_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'calibrationfrequencydetail' pk=cfrn.pk %}">{{cfrn.frequency_name}}</a></td>
+
+      <td><a href="{% url 'updatecalibrationfrequency' pk=cfrn.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'deletecalibrationfrequency' pk=cfrn.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'createcalibrationfrequency' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="container">
+
+
+<div class="jumbotron">
+<div>
+	<h2 style="text-align:center;">Master Name : {{pc_detail.master_name}}</h2>
+	<p></p>
+	<h4 style="text-align:center;">Location : {{pc_detail.location_name}}</h4>
+  <p></p>
+	<h4 style="text-align:center;">Parameter : {{pc_detail.parameter_name}}</h4>
+</div>
+	<p></p>
+	<p></p>
+	<div class="text-center">
+		<a href="{% url 'updateparametercalibrated' pk=pc_detail.pk  %}" class="btn btn-primary">Update</a>
+		<a href="{% url 'deleteparametercalibrated' pk=pc_detail.pk  %}" class="btn btn-danger">Delete</a>
+		<a href="{% url 'parametercalibrated_list' %}" class="btn btn-secondary">Back To List</a>
+	</div>
+
+</div>
+</div>
+{% endblock %}

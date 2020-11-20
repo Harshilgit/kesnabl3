@@ -1,0 +1,23 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="container">
+
+
+<div class="jumbotron">
+<div>
+	<h2 style="text-align:center;">Calibration Frequency : {{cfrn_detail.frequency_name}}</h2>
+	<p></p>
+</div>
+	<p></p>
+	<p></p>
+	<div class="text-center">
+		<a href="{% url 'updatecalibrationfrequency' pk=cfrn_detail.pk  %}" class="btn btn-primary">Update</a>
+		<a href="{% url 'deletecalibrationfrequency' pk=cfrn_detail.pk  %}" class="btn btn-danger">Delete</a>
+		<a href="{% url 'calibrationfrequency_list' %}" class="btn btn-secondary">Back To List</a>
+	</div>
+
+</div>
+</div>
+{% endblock %}

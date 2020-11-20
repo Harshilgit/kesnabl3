@@ -1,0 +1,48 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+
+
+<div class="jumbotron">
+
+<p></p>
+
+<div class="container">
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">UUC Name</th>
+    <th scope="col">Work Instruction</th>
+    <th scope="col">Is Standard</th>
+    <th scope="col">Master 1</th>
+    <th scope="col">Master 2</th>
+    <th scope="col">Master 3</th>
+    <th scope="col">Uncertainity</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{target_detail.target_instrument_name}}</td>
+    <td>{{target_detail.workinstruction}}</td>
+    <td>{{target_detail.Is_Standard}}</td>
+    <td>{{target_detail.master_1}}</td>
+    <td>{{target_detail.master_2}}</td>
+    <td>{{target_detail.master_3}}</td>
+    <td>{{target_detail.uncertainity}}</td>
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'uuc_update' pk=target_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'uuc_delete' pk=target_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'uuc_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'masterinstrument/base.html' %}
+
+{% block content %}
+<p></p>
+<p></p>
+
+<div class="container">
+<div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Role List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Description</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+  {% for role in role_list %}
+
+  <tbody>
+    <tr>
+      <td><a href="{% url 'roledetail' pk=role.pk %}">{{role.name}}</a></td>
+      <td>{{role.designation}}</td>
+      <td>{{role.description}}</td>
+
+    </tr>
+  </tbody>
+
+  {% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+  <div class="text-center">
+    <a class='btn btn-success' href="{% url 'rolecreate' %}">Add New</a>
+  </div>
+</div>
+  </div>
+  </div>
+  <p></p>
+{% endblock %}

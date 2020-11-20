@@ -1,0 +1,46 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+
+
+<div class="jumbotron">
+
+<p></p>
+
+<div class="container">
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">Job No</th>
+    <th scope="col">Date Of Receipt</th>
+    <th scope="col">Total Instrument</th>
+    <th scope="col">Cal. Location</th>
+    <th scope="col">Organization</th>
+    <th scope="col">Gate Pass</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{job_detail.job_no}}</td>
+    <td>{{job_detail.dt_receipt}}</td>
+    <td>{{job_detail.total_inst}}</td>
+    <td>{{job_detail.location}}</td>
+    <td>{{job_detail.party_name}}</td>
+    <td>{{job_detail.gatepass}}</td>
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'updatejob' pk=job_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'deletejob' pk=job_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'job_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+{% endblock %}

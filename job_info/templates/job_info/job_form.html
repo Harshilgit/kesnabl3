@@ -1,0 +1,64 @@
+{% extends "masterinstrument/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align:center">Job Entry Form</h1>
+    <p></p>
+    <p></p>
+    <div class="row">
+
+        <form method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col-md-8">
+              {{form.job_no|as_crispy_field}}
+          </div>
+          <div class="col-md-4">
+              {{form.dt_receipt|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.total_inst|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+              {{form.location|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.party_name|as_crispy_field}}
+          </div>
+          <div class="col-md-12">
+              {{form.gatepass|as_crispy_field}}
+          </div>
+
+
+
+
+      </div>
+
+        <p>	</p>
+        <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg" >
+                Save</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'job_list' %}" class="btn btn-secondary btn-block btn-lg" style="background-color:gray">
+                 Back
+            </a>
+        </div>
+    </div>
+
+      </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

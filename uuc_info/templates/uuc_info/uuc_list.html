@@ -1,0 +1,68 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+
+    <div>
+          <h2 style="text-align:center;">UUC List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">UUC Name</th>
+        <th scope="col">Work Instrument</th>
+        <th scope="col">Is Standard</th>
+        <th scope="col">Master 1</th>
+        <th scope="col">Master 2</th>
+        <th scope="col">Master 3</th>
+        <th scope="col">Uncertainity</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for target in target_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'uuc_detail' pk=target.pk %}">{{target.target_instrument_name}}</a></td>
+      <td>{{target.workinstruction}}</td>
+      <td>{{target.Is_Standard}}</td>
+      <td>{{target.master_1}}</td>
+      <td>{{target.master_2}}</td>
+      <td>{{target.master_3}}</td>
+      <td>{{target.uncertainity}}</td>
+
+
+
+      <td><a href="{% url 'uuc_update' pk=target.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'uuc_delete' pk=target.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'uuc_create' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

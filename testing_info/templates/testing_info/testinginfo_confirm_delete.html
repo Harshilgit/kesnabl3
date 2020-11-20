@@ -1,0 +1,17 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+
+<div class="text-center">
+  <div class="jumbotron">
+    <form action="" method="post">
+        {% csrf_token %}
+      <h2><p>Are you sure you want to delete "{{ object }}"?</p></h2>
+        <input class='btn btn-danger' type="submit" value="Confirm" />
+        <a href="{% url 'testing_list' %}" class="btn btn-secondary">Back</a>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

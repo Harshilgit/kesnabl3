@@ -1,0 +1,48 @@
+{% extends 'masterinstrument/base.html' %}
+
+{% block content %}
+<p></p>
+<p></p>
+
+  <div class="container">
+   <div class="jumbotron">
+     <div>
+          <h2 style="text-align:center;">City List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">City Name</th>
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+  {% for city in ct_list %}
+
+  <tbody>
+    <tr>
+      <td><a href="{% url 'citydetail' pk=city.pk %}">{{city.name}}</a></td>
+
+    </tr>
+  </tbody>
+
+  {% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+  <div class="text-center">
+    <a class='btn btn-success' href="{% url 'citycreate' %}">Add New</a>
+  </div>
+</div>
+  </div>
+  </div>
+  <p></p>
+{% endblock %}

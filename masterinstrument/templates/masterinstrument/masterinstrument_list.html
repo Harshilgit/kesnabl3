@@ -1,0 +1,61 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+
+
+<div class="container">
+  <div class="jumbotron">
+    <div>
+          <h2 style="text-align:center;">Master Instrument List</h2>
+    </div>
+
+<p></p>
+
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+      <tr>
+        <th scope="col">Master Instrument Name</th>
+        <th scope="col">Serial No</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Range</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+
+
+
+    <p></p>
+	{% for mi in masterinstrument_list %}
+
+  <tbody>
+    <tr>
+
+      <td><a href="{% url 'masterinstrumentdetail' pk=mi.pk %}">{{mi.master_name}}</a></td>
+      <td>{{mi.master_serialno}}</td>
+      <td>{{mi.make}}</td>
+      <td>{{mi.model}}</td>
+      <td>{{mi.range}}</td>
+      <td><a href="{% url 'updatemasterinstrument' pk=mi.pk %}"><i class="fas fa-edit"></a></i></td>
+      <td><a href="{% url 'deletemasterinstrument' pk=mi.pk %}"><i class="fas fa-trash-alt"></a></i></td>
+
+    </tr>
+  </tbody>
+
+	{% endfor %}
+</table>
+  <p></p>
+  <p></p>
+
+    <div class="text-center">
+      <a class='btn btn-success' href="{% url 'createmasterinstrument' %}">Add New</a>
+    </div>
+  </div>
+</div>
+</div>
+	<p></p>
+{% endblock %}

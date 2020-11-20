@@ -1,0 +1,56 @@
+{% extends "masterinstrument/base.html"%}
+
+{% block content %}
+<div class="container">
+
+
+<div class="jumbotron">
+
+<p></p>
+
+<div class="container">
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+  <tr>
+    <th scope="col">Instrument Name</th>
+    <th scope="col">Location</th>
+    <th scope="col">Make</th>
+    <th scope="col">Model</th>
+    <th scope="col">Serial No</th>
+    <th scope="col">Id No</th>
+    <th scope="col">Low Range</th>
+    <th scope="col">High Range</th>
+    <th scope="col">Least Count</th>
+    <th scope="col">Unit</th>
+
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{{testing_detail.inst_name}}</td>
+    <td>{{testing_detail.location}}</td>
+    <td>{{testing_detail.make}}</td>
+    <td>{{testing_detail.model}}</td>
+    <td>{{testing_detail.sr_no}}</td>
+    <td>{{testing_detail.id_no}}</td>
+    <td>{{testing_detail.low_range}}</td>
+    <td>{{testing_detail.high_range}}</td>
+    <td>{{testing_detail.least_count}}</td>
+    <td>{{testing_detail.unit}}</td>
+
+  </tr>
+</tbody>
+</table>
+<p></p>
+<div class="text-center">
+  <a href="{% url 'testing_update' pk=testing_detail.pk  %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'testing_delete' pk=testing_detail.pk  %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'testing_list' %}" class="btn btn-secondary">Back To List</a>
+
+</div>
+</div>
+</div>
+{% endblock %}
